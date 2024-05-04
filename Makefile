@@ -44,7 +44,11 @@ clean:
 # define ARGS en la linea del execucion para anadir otros argumentos
 # ex: make run ARGS="build"
 run: $(PROGRAM)
+	@ echo "	executing $(PROGRAM)"
+	@ echo "	-------"
+	@ echo " "
 	@ $(PROGRAM) $(ARGS)
+	@ echo " "
 
 INSTALL = /usr/local/bin
 
