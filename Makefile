@@ -41,7 +41,6 @@ clean:
 	@ rm -rf $(OUTPUT)
 
 # define ARGS in the command line in order to add additional arguments
-# define ARGS en la linea del execucion para anadir otros argumentos
 # ex: make run ARGS="build"
 run: $(PROGRAM)
 	@ echo "	executing $(PROGRAM)"

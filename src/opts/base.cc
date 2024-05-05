@@ -8,7 +8,9 @@ std::unique_ptr<ExecutionOption> ExecutionOption::get_by_name(std::string name) 
 
     if (name == "clean")        return std::make_unique<CleanupExecutionOption>();
     // Add more in same format
-    throw new std::invalid_argument(name);
+    
+    ExecutionStatus::INVALID_TASK.handle();
+    return nullptr;
 }
 
 ExecutionOption::ExecutionOption() {}

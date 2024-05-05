@@ -4,11 +4,11 @@
 using namespace ccdo;
 
 CleanupExecutionOption::CleanupExecutionOption() {
-
+    // Necessitated by compiler nature of abstract class
 }
 
 ExecutionStatus CleanupExecutionOption::perform(std::shared_ptr<ProgramArguments> args) {
     this->arguments = args;
     std::cout << "\tCleaning" << std::endl;
-    return ExecutionStatus::STAT_OKAY;
+    return ExecutionStatus::ALL_OKAY;
 }

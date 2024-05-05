@@ -1,6 +1,6 @@
 #pragma once
-#include "stat.hh"
-#include "args.hh"
+#include "exec/stat.hh"
+#include "exec/args.hh"
 #include <memory>
 
 namespace ccdo {
