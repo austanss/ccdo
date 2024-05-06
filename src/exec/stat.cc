@@ -16,25 +16,25 @@ void ExecutionStatus::handle() const {
         case ExecutionState::ALL_OKAY:
             return;
         case ExecutionState::INVALID_TASK:
-            std::cerr << "FATAL: Invalid task" << std::endl;
+            std::cerr << "FATAL: Invalid task, see help\n" << std::endl;
             break;
         case ExecutionState::BAD_ARGUMENTS:
-            std::cerr << "FATAL: Bad arguments" << std::endl;
+            std::cerr << "FATAL: Bad arguments, see help\n" << std::endl;
             break;
         case ExecutionState::BAD_CONFIG:
-            std::cerr << "FATAL: Bad configuration" << std::endl;
+            std::cerr << "FATAL: Bad configuration XML\n" << std::endl;
             break;
         case ExecutionState::FILE_ERROR:
-            std::cerr << "FATAL: File error" << std::endl;
+            std::cerr << "FATAL: File processing error\n" << std::endl;
             break;
         case ExecutionState::MEMORY_ERROR:
-            std::cerr << "FATAL: Memory error" << std::endl;
+            std::cerr << "FATAL: Memory failure error\n" << std::endl;
             break;
         case ExecutionState::MISC_ERROR:
-            std::cerr << "FATAL: Unidentified error" << std::endl;
+            std::cerr << "FATAL: Unclassified error\n" << std::endl;
             break;
         default:
-            std::cerr << "FATAL: Unknown error" << std::endl;
+            std::cerr << "FATAL: Unidentifiable error\n" << std::endl;
             break;
     }
     throw new std::runtime_error("Fatal error encountered");
