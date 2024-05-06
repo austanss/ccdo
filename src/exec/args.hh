@@ -10,10 +10,10 @@ namespace ccdo {
         ProgramArguments(int argc, char** argv);
         ProgramArguments(ProgramArguments& copy);
         ~ProgramArguments();
-        std::string at(unsigned long index);
+        std::string at(unsigned long index) const;
         inline std::string operator[](unsigned long index) { return this->at(index); };
         inline std::string operator[](int index) { return this->at((unsigned long) index); }
-        unsigned long count();
+        unsigned long count() const;
 
     private:
         ProgramArguments();

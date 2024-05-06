@@ -14,10 +14,10 @@ ProgramArguments::~ProgramArguments() {
     delete this->data;
 }
 
-std::string ProgramArguments::at(unsigned long index) {
+std::string ProgramArguments::at(unsigned long index) const {
     return this->data->at(index);
 }
 
-unsigned long ProgramArguments::count() {
+unsigned long ProgramArguments::count() const {
     return this->size;
 }

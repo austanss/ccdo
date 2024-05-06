@@ -21,7 +21,8 @@ CCFLAGS = \
 -pedantic
 
 LDFLAGS = \
--pie
+-pie \
+-lxml2
 
 .DEFAULT-GOAL	= all
 .PHONY			= clean install uninstall

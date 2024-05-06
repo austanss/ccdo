@@ -3,11 +3,11 @@
 
 namespace ccdo {
 
-    class CleanupExecutionOption : public ExecutionOption {
+    class HelpExecutionOption : public ExecutionOption {
 
     public:
-        CleanupExecutionOption();
-        virtual ~CleanupExecutionOption() override {}
+        HelpExecutionOption();
+        virtual ~HelpExecutionOption() override {}
         virtual ExecutionStatus perform(const ExecutionConfiguration& conf) override;
 
     };
