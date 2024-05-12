@@ -1,0 +1,17 @@
+name: Ensure successful compilation status
+on:
+  push:
+  pull_request:
+    branches: [ trunk ]
+
+jobs:
+  build:
+    name: Build components
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Install dependencies
+        run: sudo apt update && sudo apt install git clang build-essential libxml2
+
+      - name: Build system image
+        run: git clone https://github.com/austanss/ccdo.git && cd ccdo && make all
