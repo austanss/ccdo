@@ -1,11 +1,10 @@
 #pragma once
-#include "proj/settings.h"
+#include "proj/settings.hh"
 #include <libxml/parser.h>
 #include <string>
 
 namespace ccdo {
 
-	// Members can be modified, but will not reflect on the source file
 	class ProjectXmlFile {
 		
 	public:
