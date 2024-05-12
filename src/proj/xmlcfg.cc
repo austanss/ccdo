@@ -5,24 +5,6 @@
 
 using namespace ccdo;
 
-ProjectXmlFile::~ProjectXmlFile() {
-	xmlFreeDoc(this->document);
-}
-
-ProjectXmlFile::ProjectXmlFile(const std::string filename) : filepath(filename) {
-	this->document = xmlParseFile(this->filepath.c_str());
-	if (this->document == nullptr) {
-		ExecutionStatus::XML_ERROR.handle();
-	}
-	this->root = xmlDocGetRootElement(this->document);
-	if (this->root == nullptr) {
-		ExecutionStatus::XML_ERROR.handle();
-	}
-	if (xmlStrcmp(this->root->name, (const xmlChar *)"project") != 0) {
-		ExecutionStatus::BAD_CONFIG.handle();
-	}
-}
-
 static xmlNodePtr get_child_node_safely(xmlNodePtr parent, const std::string name) {
 	xmlNodePtr node = parent->children;
 	while (node != nullptr) {
@@ -58,6 +40,24 @@ static std::unique_ptr<std::vector<std::string>> split_identifier(const std::str
 	return tokens;
 }
 
+ProjectXmlFile::~ProjectXmlFile() {
+	xmlFreeDoc(this->document);
+}
+
+ProjectXmlFile::ProjectXmlFile(const std::string filename) : filepath(filename) {
+	this->document = xmlParseFile(this->filepath.c_str());
+	if (this->document == nullptr) {
+		ExecutionStatus::XML_ERROR.handle();
+	}
+	this->root = xmlDocGetRootElement(this->document);
+	if (this->root == nullptr) {
+		ExecutionStatus::XML_ERROR.handle();
+	}
+	if (xmlStrcmp(this->root->name, (const xmlChar *)"project") != 0) {
+		ExecutionStatus::BAD_CONFIG.handle();
+	}
+}
+
 std::string ProjectXmlFile::get_data(const std::string identifier) {
 	std::string data = "";
 
@@ -66,6 +66,12 @@ std::string ProjectXmlFile::get_data(const std::string identifier) {
 	// Traverse the XML tree
 	xmlNodePtr node = this->root;
 	for (std::string identity : *directions) {
+		if (node == nullptr) {
+			ExecutionStatus::XML_ERROR.handle();
+		}
+		if (xmlStrcmp(node->name, (const xmlChar *)identity.c_str()) == 0) {
+			continue;
+		}
 		node = get_child_node_safely(node, identity);
 	}
 	if (xmlStrcmp(node->name, (const xmlChar *)directions->back().c_str()) != 0) {
