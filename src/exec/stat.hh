@@ -9,6 +9,7 @@ namespace ccdo {
 		BAD_ARGUMENTS,
 		BAD_CONFIG,
 		FILE_ERROR,
+		XML_ERROR,
 		MEMORY_ERROR,
 		MISC_ERROR,
 	};
@@ -24,6 +25,7 @@ namespace ccdo {
 		static const ExecutionStatus BAD_ARGUMENTS;
 		static const ExecutionStatus BAD_CONFIG;
 		static const ExecutionStatus FILE_ERROR;
+		static const ExecutionStatus XML_ERROR;
 		static const ExecutionStatus MEMORY_ERROR;
 		static const ExecutionStatus MISC_ERROR;
 	};

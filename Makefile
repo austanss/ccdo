@@ -8,12 +8,15 @@ OBJECTS	= $(patsubst $(SOURCE)/%.cc, $(OUTPUT)/%.cc.o, $(CPPCODE))
 EXECUTE = ccdo
 PROGRAM	= $(OUTPUT)/$(EXECUTE)
 
+XMLINC 	= /usr/include/libxml2
+
 CC 	= clang++
 LD 	= clang++
 
 CCFLAGS = \
 -I$(SOURCE) \
 -I$(INCLUDE) \
+-I$(XMLINC) \
 -std=c++17 \
 -fpie \
 -gdwarf \

@@ -8,6 +8,7 @@ const ExecutionStatus ExecutionStatus::INVALID_TASK     { ExecutionState::INVALI
 const ExecutionStatus ExecutionStatus::BAD_ARGUMENTS    { ExecutionState::BAD_ARGUMENTS };
 const ExecutionStatus ExecutionStatus::BAD_CONFIG       { ExecutionState::BAD_CONFIG };
 const ExecutionStatus ExecutionStatus::FILE_ERROR       { ExecutionState::FILE_ERROR };
+const ExecutionStatus ExecutionStatus::XML_ERROR        { ExecutionState::XML_ERROR };
 const ExecutionStatus ExecutionStatus::MEMORY_ERROR     { ExecutionState::MEMORY_ERROR };
 const ExecutionStatus ExecutionStatus::MISC_ERROR       { ExecutionState::MISC_ERROR };
 
@@ -22,10 +23,13 @@ void ExecutionStatus::handle() const {
             std::cerr << "FATAL: Bad arguments, see help\n" << std::endl;
             break;
         case ExecutionState::BAD_CONFIG:
-            std::cerr << "FATAL: Bad configuration XML\n" << std::endl;
+            std::cerr << "FATAL: Bad configuration file data\n" << std::endl;
             break;
         case ExecutionState::FILE_ERROR:
             std::cerr << "FATAL: File processing error\n" << std::endl;
+            break;
+        case ExecutionState::XML_ERROR:
+            std::cerr << "FATAL: XML processing error\n" << std::endl;
             break;
         case ExecutionState::MEMORY_ERROR:
             std::cerr << "FATAL: Memory failure error\n" << std::endl;
