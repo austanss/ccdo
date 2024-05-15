@@ -17,15 +17,31 @@ ccdo build ./ccdo.xml
 ```
 **Hypothetical Configuration:**
 ```xml
-<!-- ./ccdo.xml -->
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- ccdo.xml -->
 <config>
+    <defaults>
+        <!-- Default selected build target's id -->
+        <target>LinuxClang64</target>
+    </defaults>
     <target>
-        <!-- x86-all, x86-32, x86-64 (ARM TBD) -->                       
-        <cpu>x86-all</cpu>
+        <!-- identifier of the target -->
+        <id>LinuxClang64</id>
+        <!-- x86-32, x86-64 (ARM TBD) -->                       
+        <cpu>x86-64</cpu>
         <!-- linux, windows (others TBD) -->
         <host>linux</host>
+        <!-- clang, gcc, maybe msvc (others TBD) -->
+        <cc>clang</cc>
     </target>
+    <files>
+        <!-- Define which directory files should be put or be found in -->
+        <src>./src</src>
+        <bin>./bin</bin>
+        <obj>./bin/obj</obj>
+        <inc>./inc</inc>
+        <lib>./lib</lib>
+    </files>
     <!-- other options TBD, this revision is not final -->
 </config>
 ```
