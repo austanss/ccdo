@@ -24,16 +24,18 @@ ccdo build ./ccdo.xml
         <!-- Default selected build target's id -->
         <target>LinuxClang64</target>
     </defaults>
-    <target>
-        <!-- identifier of the target -->
-        <id>LinuxClang64</id>
-        <!-- x86-32, x86-64 (ARM TBD) -->                       
-        <cpu>x86-64</cpu>
-        <!-- linux, windows (others TBD) -->
-        <host>linux</host>
-        <!-- clang, gcc, maybe msvc (others TBD) -->
-        <cc>clang</cc>
-    </target>
+    <targets>
+        <option>
+            <!-- identifier of the target -->
+            <id>LinuxClang64</id>
+            <!-- x86-32, x86-64 (ARM TBD) -->                       
+            <cpu>x86-64</cpu>
+            <!-- linux, windows (others TBD) -->
+            <host>linux</host>
+            <!-- clang, gcc, maybe msvc (others TBD) -->
+            <tool>clang</tool>
+        </option>
+    </targets>
     <files>
         <!-- Define which directory files should be put or be found in -->
         <src>./src</src>
